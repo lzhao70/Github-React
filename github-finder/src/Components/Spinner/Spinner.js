@@ -4,7 +4,7 @@ import spinner from './spinner.gif';
 const Spinner = () => {
   const style = {
     width: '200px',
-    margin: 'auto',
+    margin: '0 auto',
     display: 'block',
   };
   return (

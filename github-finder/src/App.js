@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import NavBar from './Components/NavBar/NavBar';
 import Users from './Components/Users/Users';
+import Alert from './Components/Alert/Alert';
 import './App.css';
 import 'typeface-nunito';
 import axios from 'axios';
@@ -39,15 +40,31 @@ class App extends Component {
     });
   };
 
+  setAlert = (msg, classN) => {
+    this.setState({
+      alert: { msg: msg, classN: classN },
+    });
+
+    setTimeout(() => {
+      this.setState({
+        alert: null,
+      });
+    }, 5000);
+  };
+
   render() {
     return (
       <div>
         <NavBar title={'Github Finder'} />
-        <Users
-          searchUsers={this.searchUsers}
-          users={this.state.users}
-          isLoading={this.state.isLoading}
-        />
+        <div className='container'>
+          <Alert alert={this.state.alert} />
+          <Users
+            searchUsers={this.searchUsers}
+            users={this.state.users}
+            isLoading={this.state.isLoading}
+            setAlert={this.setAlert}
+          />
+        </div>
       </div>
     );
   }

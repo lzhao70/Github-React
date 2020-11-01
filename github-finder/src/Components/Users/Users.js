@@ -5,9 +5,8 @@ import Search from '../Search/Search';
 
 const Users = (props) => {
   return (
-    <div class='container'>
-      <Search searchUsers={props.searchUsers} />
-
+    <div>
+      <Search searchUsers={props.searchUsers} setAlert={props.setAlert} />
       {props.isLoading ? (
         <Spinner />
       ) : (

@@ -8,10 +8,17 @@ class Search extends Component {
 
   static propTypes = {
     searchUsers: PropTypes.func.isRequired,
+    setAlert: PropTypes.func.isRequired,
   };
 
   onSubmit = (e) => {
     e.preventDefault();
+
+    if (this.state.text === '') {
+      this.props.setAlert('Please enter something!', 'alert alert-danger');
+      return;
+    }
+
     this.props.searchUsers(this.state.text);
     this.setState({ text: '' });
   };
@@ -22,7 +29,7 @@ class Search extends Component {
 
   render() {
     return (
-      <div>
+      <div className='search-container'>
         <form className='search-form' onSubmit={this.onSubmit}>
           <input
             type='text'
