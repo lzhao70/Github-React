@@ -45,7 +45,7 @@ input:focus {
 /* User Card */
 .user-card-container {
   display: grid;
-  grid-template-columns: auto auto auto auto auto;
+  grid-template-columns: 20% 20% 20% 20% 20%;
   grid-gap: 0.5rem;
 }
 
@@ -117,43 +117,44 @@ input:focus {
   border: 1px solid black;
 }
 
-.search-form input[type='button'] {
+.search-form input[type='submit'] {
   width: 19.3%;
   border-left: none !important;
   text-align: center;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 900px) {
   .user-card-container {
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: 25% 25% 25% 25%;
   }
 
   .search-form input {
     width: 76%;
   }
 
-  .search-form input[type='button'] {
+  .search-form input[type='submit'] {
     width: 24%;
   }
 }
 
 @media screen and (max-width: 700px) {
   .user-card-container {
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 33.33% 33.33% 33.33%;
   }
 
   .search-form input {
     width: 68.5%;
   }
 
-  .search-form input[type='button'] {
+  .search-form input[type='submit'] {
     width: 32.5%;
   }
 }
 
 @media screen and (max-width: 500px) {
   .user-card-container {
-    grid-template-columns: auto auto;
+    grid-template-columns: 50% 50%;
   }
 
   .search-form {
@@ -161,7 +162,7 @@ input:focus {
   }
 
   .search-form input,
-  .search-form input[type='button'] {
+  .search-form input[type='submit'] {
     display: block;
     width: 100%;
     margin: 0.1rem 0;
