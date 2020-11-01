@@ -8,9 +8,16 @@ body {
 
 /* Utilities */
 .container {
-  width: 1200px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0.6rem 1rem;
+}
+
+.bg-dark {
+  background-color: black !important;
+}
+.text-dark {
+  color: white !important;
 }
 
 /* Nav */
@@ -22,4 +29,82 @@ body {
   font-size: 1.2rem;
   font-weight: 600;
   letter-spacing: 0.1rem;
+}
+
+/* User Card */
+.user-card-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  grid-gap: 0.5rem;
+}
+
+.user-card {
+  padding: 1rem 0.5rem;
+  border: 1px solid black;
+}
+
+.user-card input,
+.user-card label {
+  display: block;
+  width: 100%;
+  margin: 0.3rem 0;
+  color: black;
+}
+
+.user-card a,
+.user-card input {
+  font-size: 0.8rem;
+}
+.user-card label {
+  font-size: 0.9rem;
+}
+
+.user-card input {
+  border: 1px solid black;
+  border-radius: none;
+  background-color: white;
+  padding: 0.2rem;
+}
+
+.user-card img {
+  width: 100px;
+  border: 1px solid white;
+  border-radius: 50%;
+  margin: 0 auto;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.user-card-buttons {
+  display: flex;
+  gap: 0.3rem;
+  margin: 0.3rem 0;
+}
+
+.user-card a {
+  flex: 1;
+  display: block;
+  padding: 0.2rem;
+  border: 1px solid black;
+  text-decoration: none;
+  text-align: center;
+  color: black;
+}
+
+@media screen and (max-width: 900px) {
+  .user-card-container {
+    grid-template-columns: auto auto auto auto;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .user-card-container {
+    grid-template-columns: auto auto auto;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .user-card-container {
+    grid-template-columns: auto auto;
+  }
 }

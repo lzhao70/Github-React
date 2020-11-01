@@ -8,7 +8,11 @@ const Users = (props) => {
       {props.isLoading ? (
         <Spinner />
       ) : (
-        props.users.map((user) => <User user={user} />)
+        <div className='user-card-container'>
+          {props.users.map((user) => (
+            <User user={user} />
+          ))}
+        </div>
       )}
     </div>
   );
