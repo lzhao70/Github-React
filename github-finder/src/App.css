@@ -6,10 +6,15 @@ body {
   font-family: 'nunito';
 }
 
+textarea:focus,
+input:focus {
+  outline: none;
+}
+
 /* Utilities */
 .container {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0.5rem auto;
   padding: 0.6rem 1rem;
 }
 
@@ -21,12 +26,18 @@ body {
 }
 
 /* Nav */
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.4rem 1rem;
+}
+
 .nav {
   border-bottom: 1px solid black;
 }
 
 .nav-title {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.1rem;
 }
@@ -91,9 +102,38 @@ body {
   color: black;
 }
 
+/* Search */
+.search-form {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.search-form input {
+  display: block;
+  width: 80.7%;
+  border-radius: none;
+  background-color: white;
+  padding: 0.2rem;
+  border: 1px solid black;
+}
+
+.search-form input[type='button'] {
+  width: 19.3%;
+  border-left: none !important;
+  text-align: center;
+}
+
 @media screen and (max-width: 900px) {
   .user-card-container {
     grid-template-columns: auto auto auto auto;
+  }
+
+  .search-form input {
+    width: 76%;
+  }
+
+  .search-form input[type='button'] {
+    width: 24%;
   }
 }
 
@@ -101,10 +141,29 @@ body {
   .user-card-container {
     grid-template-columns: auto auto auto;
   }
+
+  .search-form input {
+    width: 68.5%;
+  }
+
+  .search-form input[type='button'] {
+    width: 32.5%;
+  }
 }
 
 @media screen and (max-width: 500px) {
   .user-card-container {
     grid-template-columns: auto auto;
+  }
+
+  .search-form {
+    flex-direction: column;
+  }
+
+  .search-form input,
+  .search-form input[type='button'] {
+    display: block;
+    width: 100%;
+    margin: 0.1rem 0;
   }
 }

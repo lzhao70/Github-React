@@ -1,6 +1,7 @@
 import React from 'react';
 import User from './User';
 import Spinner from '../Spinner/Spinner';
+import Search from '../Search/Search';
 
 const Users = (props) => {
   return (
@@ -8,10 +9,13 @@ const Users = (props) => {
       {props.isLoading ? (
         <Spinner />
       ) : (
-        <div className='user-card-container'>
-          {props.users.map((user) => (
-            <User user={user} />
-          ))}
+        <div>
+          <Search />
+          <div className='user-card-container'>
+            {props.users.map((user) => (
+              <User user={user} />
+            ))}
+          </div>
         </div>
       )}
     </div>
