@@ -24,11 +24,30 @@ class App extends Component {
     });
   }
 
+  searchUsers = async (txt) => {
+    this.setState({
+      isLoading: true,
+    });
+
+    let usersData = await axios.get(
+      `https://api.github.com/search/users?q=${txt}`
+    );
+
+    this.setState({
+      users: usersData.data.items,
+      isLoading: false,
+    });
+  };
+
   render() {
     return (
       <div>
         <NavBar title={'Github Finder'} />
-        <Users users={this.state.users} isLoading={this.state.isLoading} />
+        <Users
+          searchUsers={this.searchUsers}
+          users={this.state.users}
+          isLoading={this.state.isLoading}
+        />
       </div>
     );
   }

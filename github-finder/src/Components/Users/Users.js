@@ -10,7 +10,7 @@ const Users = (props) => {
         <Spinner />
       ) : (
         <div>
-          <Search />
+          <Search searchUsers={props.searchUsers} />
           <div className='user-card-container'>
             {props.users.map((user) => (
               <User user={user} />
