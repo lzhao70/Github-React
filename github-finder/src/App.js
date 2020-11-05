@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import NavBar from './Components/NavBar/NavBar';
 import Users from './Components/Users/Users';
@@ -55,16 +56,22 @@ class App extends Component {
   render() {
     return (
       <div>
-        <NavBar title={'Github Finder'} />
-        <div className='container'>
-          <Alert alert={this.state.alert} />
-          <Users
-            searchUsers={this.searchUsers}
-            users={this.state.users}
-            isLoading={this.state.isLoading}
-            setAlert={this.setAlert}
-          />
-        </div>
+        <Router>
+          <NavBar title={'Github Finder'} />
+          <div className='container'>
+            <Alert alert={this.state.alert} />
+            <Switch>
+              <Route path='/'>
+                <Users
+                  searchUsers={this.searchUsers}
+                  users={this.state.users}
+                  isLoading={this.state.isLoading}
+                  setAlert={this.setAlert}
+                />{' '}
+              </Route>
+            </Switch>
+          </div>
+        </Router>
       </div>
     );
   }
