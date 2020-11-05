@@ -4,6 +4,7 @@ import './App.css';
 import NavBar from './Components/NavBar/NavBar';
 import Users from './Components/Users/Users';
 import Alert from './Components/Alert/Alert';
+import About from './Components/About/About';
 import './App.css';
 import 'typeface-nunito';
 import axios from 'axios';
@@ -61,14 +62,15 @@ class App extends Component {
           <div className='container'>
             <Alert alert={this.state.alert} />
             <Switch>
-              <Route path='/'>
+              <Route exact path='/'>
                 <Users
                   searchUsers={this.searchUsers}
                   users={this.state.users}
                   isLoading={this.state.isLoading}
                   setAlert={this.setAlert}
-                />{' '}
+                />
               </Route>
+              <Route exact path='/about' component={About} />
             </Switch>
           </div>
         </Router>
