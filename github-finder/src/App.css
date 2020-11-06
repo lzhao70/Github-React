@@ -77,6 +77,21 @@ input:focus {
   border: 1px solid black;
 }
 
+.detail-card {
+  margin: 0 auto;
+  max-width: 450px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.detail-card-row {
+  margin-bottom: 0.6rem !important;
+}
+
+/* .detail-card input {
+  margin: 0.5rem;
+} */
+
 .user-card input,
 .user-card label {
   display: block;
@@ -176,6 +191,7 @@ input:focus {
 @media screen and (max-width: 900px) {
   .user-card-container {
     grid-template-columns: auto auto auto auto;
+    grid-row-gap: 0.1%;
   }
 
   .search-form input {
@@ -190,6 +206,7 @@ input:focus {
 @media screen and (max-width: 700px) {
   .user-card-container {
     grid-template-columns: auto auto auto;
+    grid-row-gap: 0.1%;
   }
 
   .search-form input {
@@ -204,6 +221,7 @@ input:focus {
 @media screen and (max-width: 500px) {
   .user-card-container {
     grid-template-columns: auto auto;
+    grid-row-gap: 0.1%;
   }
 
   .search-form {
