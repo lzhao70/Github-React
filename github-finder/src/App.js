@@ -5,6 +5,8 @@ import NavBar from './Components/NavBar/NavBar';
 import Users from './Components/Users/Users';
 import Alert from './Components/Alert/Alert';
 import About from './Components/About/About';
+import UserDetails from './Components/Users/UserDetails';
+
 import './App.css';
 import 'typeface-nunito';
 import axios from 'axios';
@@ -14,6 +16,7 @@ class App extends Component {
     super(props);
     this.state = {
       users: [],
+      user: {},
       isLoading: true,
     };
   }
@@ -26,6 +29,21 @@ class App extends Component {
       isLoading: false,
     });
   }
+
+  getUser = async (userName) => {
+    this.setState({
+      isLoading: true,
+    });
+
+    let userData = await axios.get(`https://api.github.com/users/${userName}`);
+
+    this.setState({
+      user: userData.data,
+      isLoading: false,
+    });
+
+    console.log(this.state.user);
+  };
 
   searchUsers = async (txt) => {
     this.setState({
@@ -71,6 +89,17 @@ class App extends Component {
                 />
               </Route>
               <Route exact path='/about' component={About} />
+              <Route
+                exact
+                path='/users/:login'
+                render={(props) => (
+                  <UserDetails
+                    {...props}
+                    getUser={this.getUser}
+                    user={this.state.user}
+                  />
+                )}
+              />
             </Switch>
           </div>
         </Router>

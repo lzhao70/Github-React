@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const User = (props) => {
   return (
@@ -9,13 +10,9 @@ const User = (props) => {
       <input type='text' disabled value={props.user.login} />
 
       <div className='user-card-buttons'>
-        <a
-          href={props.user.followers_url}
-          target='_blank'
-          rel='noreferrer'
-          className='bg-dark text-dark'>
+        <Link to={`/users/${props.user.login}`} className='bg-dark text-dark'>
           Details
-        </a>
+        </Link>
 
         <a href={props.user.html_url} target='_blank' rel='noreferrer'>
           Github
